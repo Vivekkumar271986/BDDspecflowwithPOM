@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using NUnit.Framework;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Edge;
 using OpenQA.Selenium;
 using WebDriverManager.DriverConfigs.Impl;
 using AventStack.ExtentReports;
@@ -62,11 +63,34 @@ namespace SpecFlowBDDAutomationFramework.Hooks
         public void FirstBeforeScenario(ScenarioContext scenarioContext)
         {
             Console.WriteLine("Running before scenario...");
-            new WebDriverManager.DriverManager().SetUpDriver(new FirefoxConfig());
-            FirefoxOptions options = new FirefoxOptions();
-            options.AddArguments("--headless");
-            IWebDriver driver = new FirefoxDriver(options);   //Run headless
-            //IWebDriver driver = new FirefoxDriver();            //Normal mode
+            IWebDriver driver;
+
+            switch (Config.Browser.ToLower())  //Converts the value of Config.Browser to lowercase. This is useful for making the switch case-insensitive.
+            {
+                case "firefox":
+                    new WebDriverManager.DriverManager().SetUpDriver(new FirefoxConfig());
+                    FirefoxOptions firefoxOptions = new FirefoxOptions();
+                    if (Config.Headless) firefoxOptions.AddArguments("--headless");
+                    driver = new FirefoxDriver(firefoxOptions);                            //else run as headed
+                    break;
+
+                case "chrome":
+                    new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
+                    ChromeOptions chromeOptions = new ChromeOptions();
+                    if (Config.Headless) chromeOptions.AddArguments("--headless");
+                    driver = new ChromeDriver(chromeOptions);
+                    break;
+
+                case "edge":
+                    new WebDriverManager.DriverManager().SetUpDriver(new EdgeConfig());
+                    EdgeOptions edgeOptions = new EdgeOptions();
+                    if (Config.Headless) edgeOptions.AddArguments("--headless");
+                    driver = new EdgeDriver(edgeOptions);
+                    break;
+
+                default:
+                    throw new NotSupportedException($"Browser '{Config.Browser}' is not supported.");
+            }
 
             driver.Manage().Window.Maximize();
 

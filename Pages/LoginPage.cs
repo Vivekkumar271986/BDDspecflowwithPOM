@@ -24,7 +24,7 @@ namespace VKNewSpecFlowProject1.Pages
         // laucnh browser
         public void launchbrowser()
         {
-            driver.Navigate().GoToUrl(Config.BaseUrl);
+            driver.Navigate().GoToUrl(Config.OrangeHRBaseUrl);
         }
 
         // enter username and password

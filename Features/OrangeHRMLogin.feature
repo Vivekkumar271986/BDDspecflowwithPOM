@@ -18,7 +18,6 @@ Scenario Outline: Verify Login for orange hrm website using valid credentials
 Examples:
 | username | password |
 | Admin    | admin123 |
-| User     | User2133 |
 
 @Regression
 Scenario Outline: Verify Login for orange hrm website using invalid credentials
@@ -30,3 +29,4 @@ Scenario Outline: Verify Login for orange hrm website using invalid credentials
 Examples:
 | username | password |
 | Admin    | admin134 |
+| User     | User2133 |
