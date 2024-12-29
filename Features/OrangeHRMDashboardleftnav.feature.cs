@@ -106,18 +106,19 @@ this.ScenarioInitialize(scenarioInfo);
 testRunner.Given("User is on login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 9
- testRunner.When(string.Format("User enters \"{0}\" in the \"//input[@placeholder=\'Username\']\" text box", username), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("User enters \"{0}\" in the \"Username\" text box", username), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 10
-  testRunner.And(string.Format("User enters \"{0}\" in the \"//input[@placeholder=\'Password\']\" text box", password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And(string.Format("User enters \"{0}\" in the \"Password\" text box", password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 11
-  testRunner.And("User clicks on the Login button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("User clicks on the \"Login\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 12
- testRunner.Then("User is navigated to \"//h6[@class=\'oxd-text oxd-text--h6 oxd-topbar-header-breadc" +
-                        "rumb-module\']\" page with \"//a[@class=\'oxd-main-menu-item active\']\" tab highlight" +
-                        "ed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("User is navigated to \"Dashboard\" page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 13
+  testRunner.And("User sees \"leftnavdashboard\" tab highlighted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();

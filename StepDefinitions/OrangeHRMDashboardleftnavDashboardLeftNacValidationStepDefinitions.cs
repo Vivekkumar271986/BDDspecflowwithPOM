@@ -3,39 +3,29 @@ using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
+using VKNewSpecFlowProject1.Pages;
 
 namespace VKNewSpecFlowProject1.StepDefinitions
 {
     [Binding]
     public class OrangeHRMDashboardleftnavvalidationStepDefinitions
     {
-        private readonly ScenarioContext _scenarioContext;
-        private IWebDriver _driver;
+        private IWebDriver driver;
+        LoginPage loginPage;
+        DashboardPage dashboardPage;
 
-        public OrangeHRMDashboardleftnavvalidationStepDefinitions(ScenarioContext scenarioContext)
+        public OrangeHRMDashboardleftnavvalidationStepDefinitions(IWebDriver driver)
         {
-            _scenarioContext = scenarioContext;
-            _driver = _scenarioContext["WebDriver"] as IWebDriver;
+            this.driver = driver;
+            loginPage = new LoginPage(driver);
+            dashboardPage = new DashboardPage(driver);
         }
 
-        [When(@"User enters ""([^""]*)"" in the ""([^""]*)"" text box")]
-        public void WhenUserEntersInTheTextBox(string logindetails,string textboxinputvalue)
+        [Then(@"User sees ""([^""]*)"" tab highlighted")]
+        public void ThenUserSeesTabHighlighted(string tabhighlighted)
         {
-            _driver.FindElement(By.XPath(textboxinputvalue)).SendKeys(logindetails);
-        }
-
-
-        [Then(@"User is navigated to ""([^""]*)"" page with ""([^""]*)"" tab highlighted")]
-        public void ThenUserIsNavigatedToPageWithTabHighlighted(string dashboard, string leftnavdashboard)
-        {
-            Thread.Sleep(7000);
-            IWebElement PageHeader = _driver.FindElement(By.XPath(dashboard));
-            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
-            wait.Until(d => PageHeader.Displayed);
-            IWebElement LeftNavTab = _driver.FindElement(By.XPath(leftnavdashboard));
-            wait.Until(d => LeftNavTab.Displayed);
-            Console.WriteLine("User is in " + PageHeader.Text +"page with " +LeftNavTab.Text +" tab highlighted");
-        }
+            dashboardPage.leftnavtabhighlighted(tabhighlighted);
+        } 
 
         [When(@"User clicks on Admin button")]
         public void WhenUserClicksOnAdminButton()

@@ -2,71 +2,80 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using OpenQA.Selenium.BiDi.Modules.BrowsingContext;
 
 namespace VKNewSpecFlowProject1.Pages
 {
     public class LoginPage
     {
         private IWebDriver driver;
-
         public LoginPage(IWebDriver driver)
         {
             this.driver = driver;
         }
 
-        // locators on the login page
-        By usernameField = By.XPath("//input[@name = 'username']");
-        By passwordField = By.XPath("//input[@name = 'password']");
-        By loginFormLocator = By.TagName("button");
-        By homepagedisplayed = By.XPath("(//a[@class = 'oxd-main-menu-item'])[1]");
-        By errormessage = By.XPath("//p[@class='oxd-text oxd-text--p oxd-alert-content-text']");
+        private readonly Dictionary<string, By> _locators = new Dictionary<string, By>
+        {
+            { "username", By.XPath("//input[@name='username']") },
+            { "password", By.XPath("//input[@name='password']") },
+            { "login", By.TagName("button") },
+            { "dashboard", By.XPath("//h6[@class='oxd-text oxd-text--h6 oxd-topbar-header-breadcrumb-module']") },
+            { "error message", By.XPath("//p[@class='oxd-text oxd-text--p oxd-alert-content-text']") }
+        };
 
-        // laucnh browser
+        // Method to get locator by keyword
+        public By GetLocator(string keyword)
+        {
+            if (_locators.TryGetValue(keyword.ToLower(), out By locator))
+            {
+                return locator;
+            }
+            throw new KeyNotFoundException($"Locator for keyword '{keyword}' not found.");
+        }
+
+        // launch browser
         public void launchbrowser()
         {
             driver.Navigate().GoToUrl(Config.OrangeHRBaseUrl);
         }
 
-        // enter username and password
-        public void enterusername(String username)
+        // Enter text in a field
+        public void entertext(string keyword, string text)
         {
-            driver.FindElement(usernameField).SendKeys(username);
-        }
-
-        public void enterpass(String password)
-        {
-            driver.FindElement(passwordField).SendKeys(password);
+            By locator = GetLocator(text);
+            driver.FindElement(locator).SendKeys(keyword);
         }
 
         // submit method
-        public void submit()
+        public void submit(string keyword)
         {
-            driver.FindElement(loginFormLocator).Click();
+            By locator = GetLocator(keyword); 
+            driver.FindElement(locator).Click();
         }
 
-        // home page is displayed
-        public void homepagedisplay()
+        // Verify page is displayed
+        public void pagedisplay(String keyword)
         {
-            IWebElement homepage = driver.FindElement(homepagedisplayed);
-            if (homepage.Displayed)
+            By locator = GetLocator(keyword); 
+            IWebElement page = driver.FindElement(locator);
+            if (page.Displayed)
             {
-                Console.WriteLine("Home page is displayed");
+                Console.WriteLine(page.Text + " page is displayed");
             }
             else
             {
-                Console.WriteLine("Home page is not displayed");
+                Console.WriteLine(page.Text + " page is not displayed");
             }
-        }
+        } 
 
         public void loginerror()
         {
-            Thread.Sleep(3000);
-            IWebElement ErrorMessage = driver.FindElement(errormessage);
+            By locator = GetLocator("error message");
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            wait.Until(d => ErrorMessage.Displayed);
-            String EMessage = ErrorMessage.Text;
-            Assert.AreEqual("Invalid credentials", EMessage);
-            Console.WriteLine("Error Message is:" + EMessage);
+            IWebElement errorMessage = wait.Until(d => d.FindElement(locator));
+            string eMessage = errorMessage.Text;
+            Assert.AreEqual("Invalid credentials", eMessage);
+            Console.WriteLine("Error Message is: " + eMessage);
         }
     }
 }

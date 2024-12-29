@@ -85,10 +85,10 @@ testRunner.Given("User is on login page", ((string)(null)), ((TechTalk.SpecFlow.
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Verify Login for orange hrm website using valid credentials")]
+        [NUnit.Framework.DescriptionAttribute("Verify Successful Login to orange hrm website using valid credentials")]
         [NUnit.Framework.CategoryAttribute("Sanity")]
         [NUnit.Framework.TestCaseAttribute("Admin", "admin123", null)]
-        public void VerifyLoginForOrangeHrmWebsiteUsingValidCredentials(string username, string password, string[] exampleTags)
+        public void VerifySuccessfulLoginToOrangeHrmWebsiteUsingValidCredentials(string username, string password, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "Sanity"};
@@ -100,7 +100,7 @@ testRunner.Given("User is on login page", ((string)(null)), ((TechTalk.SpecFlow.
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("username", username);
             argumentsOfScenario.Add("password", password);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify Login for orange hrm website using valid credentials", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify Successful Login to orange hrm website using valid credentials", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 12
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -115,16 +115,16 @@ this.ScenarioInitialize(scenarioInfo);
 this.FeatureBackground();
 #line hidden
 #line 13
- testRunner.When(string.Format("User enters \"{0}\" in the Username text box", username), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("User enters \"{0}\" in the \"Username\" text box", username), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 14
-  testRunner.And(string.Format("User enters \"{0}\" in the Password text box", password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And(string.Format("User enters \"{0}\" in the \"Password\" text box", password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 15
-  testRunner.And("User clicks on the Login button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("User clicks on the \"Login\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 16
- testRunner.Then("User is navigated to home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("User is navigated to \"Dashboard\" page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -162,13 +162,13 @@ this.ScenarioInitialize(scenarioInfo);
 this.FeatureBackground();
 #line hidden
 #line 24
- testRunner.When(string.Format("User enters \"{0}\" in the Username text box", username), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("User enters \"{0}\" in the \"Username\" text box", username), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 25
-  testRunner.And(string.Format("User enters \"{0}\" in the Password text box", password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And(string.Format("User enters \"{0}\" in the \"Password\" text box", password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 26
-  testRunner.And("User clicks on the Login button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("User clicks on the \"Login\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 27
  testRunner.Then("User is on login page and error message is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

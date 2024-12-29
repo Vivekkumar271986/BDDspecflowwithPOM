@@ -9,15 +9,17 @@ using VKNewSpecFlowProject1.Pages;
 namespace VKNewSpecFlowProject1.StepDefinitions
 {
     [Binding]
-    public class OrangeHRMLoginLoginFunctionalityStepDefinitions
+    public class OrangeHRMLoginLoginFunctionalityStepDefinitions 
     {
         private IWebDriver driver;
         LoginPage loginPage;
+        DashboardPage dashboardPage;
 
-        public OrangeHRMLoginLoginFunctionalityStepDefinitions(IWebDriver driver)
+        public OrangeHRMLoginLoginFunctionalityStepDefinitions (IWebDriver driver)
         {
             this.driver = driver;
             loginPage = new LoginPage(driver);
+            dashboardPage = new DashboardPage(driver);
         }
 
         [Given(@"User is on login page")]
@@ -27,30 +29,23 @@ namespace VKNewSpecFlowProject1.StepDefinitions
             Thread.Sleep(5000);
         }
 
-        [When(@"User enters ""([^""]*)"" in the Username text box")]
-        public void WhenUserEntersTheAdminTextBox(String username)
+        [When(@"User enters ""([^""]*)"" in the ""([^""]*)"" text box")]
+        public void WhenUserEntersInTheTextBox(string logindetails, string textboxinputvalue)
         {
-            loginPage.enterusername(username);
-        }
+            loginPage.entertext(logindetails, textboxinputvalue);
+        }  
 
-        [When(@"User enters ""([^""]*)"" in the Password text box")]
-        public void WhenUserEntersInTheTextBox(String password)
+        [When(@"User clicks on the ""([^""]*)"" button")]
+        public void WhenUserClicksOnTheButton(string button)
         {
-            loginPage.enterpass(password);
-        }
-
-        [When(@"User clicks on the Login button")]
-        public void WhenUserClicksOnTheLoginButton()
-        {
-            loginPage.submit();
+            loginPage.submit(button);
             Thread.Sleep(5000);
         }
 
-        [Then(@"User is navigated to home page")]
-        public void ThenUserIsNavigatedToHomePage()
+        [Then(@"User is navigated to ""([^""]*)"" page")]
+        public void ThenUserIsNavigatedToPage(string pagename)
         {
-            Thread.Sleep(5000);
-            loginPage.submit();
+            dashboardPage.pagedisplay(pagename);
         }
 
         [Then(@"User is on login page and error message is displayed")]

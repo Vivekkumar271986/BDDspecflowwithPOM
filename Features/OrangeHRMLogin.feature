@@ -9,11 +9,11 @@ Background:
 Given User is on login page
 
 @Sanity
-Scenario Outline: Verify Login for orange hrm website using valid credentials
- When User enters "<username>" in the Username text box
-  And User enters "<password>" in the Password text box
-  And User clicks on the Login button
- Then User is navigated to home page
+Scenario Outline: Verify Successful Login to orange hrm website using valid credentials
+ When User enters "<username>" in the "Username" text box
+  And User enters "<password>" in the "Password" text box
+  And User clicks on the "Login" button
+ Then User is navigated to "Dashboard" page
 
 Examples:
 | username | password |
@@ -21,9 +21,9 @@ Examples:
 
 @Regression
 Scenario Outline: Verify Login for orange hrm website using invalid credentials
- When User enters "<username>" in the Username text box
-  And User enters "<password>" in the Password text box
-  And User clicks on the Login button
+ When User enters "<username>" in the "Username" text box
+  And User enters "<password>" in the "Password" text box
+  And User clicks on the "Login" button
  Then User is on login page and error message is displayed
 
 Examples:
