@@ -23,7 +23,6 @@ namespace VKNewSpecFlowProject1.Pages
             { "error message", By.XPath("//p[@class='oxd-text oxd-text--p oxd-alert-content-text']") }
         };
 
-        // Method to get locator by keyword
         public By GetLocator(string keyword)
         {
             if (_locators.TryGetValue(keyword.ToLower(), out By locator))
