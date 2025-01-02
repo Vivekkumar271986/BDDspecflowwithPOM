@@ -9,7 +9,10 @@ Given User is on login page
  When User enters "<username>" in the "Username" text box
   And User enters "<password>" in the "Password" text box
   And User clicks on the "Login" button
- Then User is navigated to "//h6[@class='oxd-text oxd-text--h6 oxd-topbar-header-breadcrumb-module']" page with "//a[@class='oxd-main-menu-item active']" tab highlighted
+ Then User is navigated to "Dashboard" page
+  And User sees "LeftNavDashboard" tab highlighted
+ When User clicks on the "LeftNavAdmin" button
+ Then User is navigated to "Admin" page
  Then User selects city and country information
 
  | city   | country |

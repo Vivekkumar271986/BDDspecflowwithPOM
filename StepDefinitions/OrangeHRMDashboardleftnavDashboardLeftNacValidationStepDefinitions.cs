@@ -14,6 +14,7 @@ namespace VKNewSpecFlowProject1.StepDefinitions
         LoginPage loginPage;
         DashboardPage dashboardPage;
 
+
         public OrangeHRMDashboardleftnavvalidationStepDefinitions(IWebDriver driver)
         {
             this.driver = driver;
@@ -24,13 +25,7 @@ namespace VKNewSpecFlowProject1.StepDefinitions
         [Then(@"User sees ""([^""]*)"" tab highlighted")]
         public void ThenUserSeesTabHighlighted(string tabhighlighted)
         {
-            dashboardPage.leftnavtabhighlighted(tabhighlighted);
-        } 
-
-        [When(@"User clicks on Admin button")]
-        public void WhenUserClicksOnAdminButton()
-        {
-            throw new PendingStepException();
+          dashboardPage.leftnavtabhighlighted(tabhighlighted);
         }
 
         [Then(@"User selects city and country information")]

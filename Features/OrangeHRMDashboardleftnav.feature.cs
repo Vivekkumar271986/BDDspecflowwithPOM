@@ -118,7 +118,7 @@ testRunner.Given("User is on login page", ((string)(null)), ((TechTalk.SpecFlow.
  testRunner.Then("User is navigated to \"Dashboard\" page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 13
-  testRunner.And("User sees \"leftnavdashboard\" tab highlighted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("User sees \"LeftNavDashboard\" tab highlighted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();

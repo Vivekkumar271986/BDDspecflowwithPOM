@@ -10,7 +10,7 @@ Given User is on login page
   And User enters "<password>" in the "Password" text box
   And User clicks on the "Login" button
  Then User is navigated to "Dashboard" page
-  And User sees "leftnavdashboard" tab highlighted
+  And User sees "LeftNavDashboard" tab highlighted
  
  Examples:
 | username | password |

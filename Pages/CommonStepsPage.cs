@@ -8,12 +8,12 @@ using VKNewSpecFlowProject1.Utility;
 
 namespace VKNewSpecFlowProject1.Pages
 {
-    public class LoginPage
+    public class CommonStepsPage
     {
         private IWebDriver driver;
         private ButtonClickHelper buttonClickHelper;
 
-        public LoginPage(IWebDriver driver)
+        public CommonStepsPage(IWebDriver driver)
         {
             this.driver = driver;
             buttonClickHelper = new ButtonClickHelper(driver);
@@ -24,7 +24,9 @@ namespace VKNewSpecFlowProject1.Pages
             { "username", By.XPath("//input[@name='username']") },
             { "password", By.XPath("//input[@name='password']") },
             { "login", By.TagName("button") },
-            { "error message", By.XPath("//p[@class='oxd-text oxd-text--p oxd-alert-content-text']") }
+            { "dashboard", By.XPath("//h6[@class='oxd-text oxd-text--h6 oxd-topbar-header-breadcrumb-module'][text()='Dashboard']") },
+            { "leftnavadmin", By.XPath("//span[text()='Admin']") },
+            { "admin", By.XPath("//h6[@class='oxd-text oxd-text--h6 oxd-topbar-header-breadcrumb-module'][text()='Admin']") }
         };
 
         public By GetLocator(string keyword)
@@ -36,25 +38,25 @@ namespace VKNewSpecFlowProject1.Pages
             throw new KeyNotFoundException($"Locator for keyword '{keyword}' not found.");
         }
 
-        public void launchbrowser()
+        public void clickbutton(string keyword)
         {
-            driver.Navigate().GoToUrl(ConfigReader.OrangeHRBaseUrl);
+            By locator = GetLocator(keyword);
+            buttonClickHelper.ClickButton(locator);
         }
 
-        public void entertext(string keyword, string text)
+        public void pagedisplay(string keyword)
         {
-            By locator = GetLocator(text);
-            driver.FindElement(locator).SendKeys(keyword);
+            By locator = GetLocator(keyword);
+            IWebElement page = driver.FindElement(locator);
+            if (page.Displayed)
+            {
+                Console.WriteLine(page.Text + " page is displayed");
+            }
+            else
+            {
+                Console.WriteLine(page.Text + " page is not displayed");
+            }
         }
 
-        public void loginerror()
-        {
-            By locator = GetLocator("error message");
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            IWebElement errorMessage = wait.Until(d => d.FindElement(locator));
-            string eMessage = errorMessage.Text;
-            Assert.AreEqual("Invalid credentials", eMessage);
-            Console.WriteLine("Error Message is: " + eMessage);
-        }
     }
 }
