@@ -38,7 +38,7 @@ namespace VKNewSpecFlowProject1.Pages
 
         public void launchbrowser()
         {
-            driver.Navigate().GoToUrl(ConfigReader.OrangeHRBaseUrl);
+            driver.Navigate().GoToUrl(ConfigReader.BaseUrl);
         }
 
         public void entertext(string keyword, string text)

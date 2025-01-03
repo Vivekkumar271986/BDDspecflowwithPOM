@@ -10,9 +10,11 @@ Given User is on login page
   And User enters "<password>" in the "Password" text box
   And User clicks on the "Login" button
  Then User is navigated to "Dashboard" page
-  And User sees "LeftNavDashboard" tab highlighted
+ When User waits for the "LeftNavDashboard" element to load
+ Then User sees "LeftNavDashboard" tab highlighted
  When User clicks on the "LeftNavAdmin" button
  Then User is navigated to "Admin" page
+ When User waits for the "Admin" element to load
  Then User selects city and country information
 
  | city   | country |

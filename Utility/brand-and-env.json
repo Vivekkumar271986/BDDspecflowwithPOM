@@ -1,0 +1,7 @@
+{
+    "BaseUrls": {
+        "OrangeHR": "https://opensource-demo.orangehrmlive.com",
+        "RShettyAcadamy": "https://rahulshettyacademy.com/angularpractice/",
+        "BankingWebsite": "http://www.way2automation.com/angularjs-protractor/banking/#/login"
+    }
+}

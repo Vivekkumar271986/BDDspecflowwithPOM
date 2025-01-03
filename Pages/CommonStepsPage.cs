@@ -26,7 +26,8 @@ namespace VKNewSpecFlowProject1.Pages
             { "login", By.TagName("button") },
             { "dashboard", By.XPath("//h6[@class='oxd-text oxd-text--h6 oxd-topbar-header-breadcrumb-module'][text()='Dashboard']") },
             { "leftnavadmin", By.XPath("//span[text()='Admin']") },
-            { "admin", By.XPath("//h6[@class='oxd-text oxd-text--h6 oxd-topbar-header-breadcrumb-module'][text()='Admin']") }
+            { "admin", By.XPath("//h6[@class='oxd-text oxd-text--h6 oxd-topbar-header-breadcrumb-module'][text()='Admin']") },
+            { "leftnavdashboard", By.XPath("//a[@class='oxd-main-menu-item active']") }
         };
 
         public By GetLocator(string keyword)
@@ -58,5 +59,12 @@ namespace VKNewSpecFlowProject1.Pages
             }
         }
 
+        public void WaitForElementToLoad(string keyword, int timeoutInSeconds = 10)
+        {
+            By locator = GetLocator(keyword);
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeoutInSeconds));
+            IWebElement element = driver.FindElement(locator);
+            wait.Until(d => element.Displayed);
+        }
     }
 }

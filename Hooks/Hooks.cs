@@ -92,7 +92,17 @@ namespace SpecFlowBDDAutomationFramework.Hooks
                     throw new NotSupportedException($"Browser '{ConfigReader.Browser}' is not supported.");
             }
 
-            driver.Manage().Window.Maximize();
+            if (ConfigReader.Maximize)
+            {
+                driver.Manage().Window.Maximize();
+            }
+            else
+            {
+                driver.Manage().Window.Size = new System.Drawing.Size(ConfigReader.ViewportWidth, ConfigReader.ViewportHeight);
+            }
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(ConfigReader.ImplicitWait); // Set implicit wait timeout
+            driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(ConfigReader.PageLoad); // Set page load timeout
+            driver.Manage().Timeouts().AsynchronousJavaScript = TimeSpan.FromSeconds(ConfigReader.AsynchronousJavaScript); // Set script timeout
 
             _container.RegisterInstanceAs<IWebDriver>(driver);
 

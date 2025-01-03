@@ -118,13 +118,19 @@ testRunner.Given("User is on login page", ((string)(null)), ((TechTalk.SpecFlow.
  testRunner.Then("User is navigated to \"Dashboard\" page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 13
-  testRunner.And("User sees \"LeftNavDashboard\" tab highlighted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("User waits for the \"LeftNavDashboard\" element to load", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 14
- testRunner.When("User clicks on the \"LeftNavAdmin\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Then("User sees \"LeftNavDashboard\" tab highlighted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 15
+ testRunner.When("User clicks on the \"LeftNavAdmin\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 16
  testRunner.Then("User is navigated to \"Admin\" page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 17
+ testRunner.When("User waits for the \"Admin\" element to load", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
                 TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                             "city",
@@ -135,7 +141,7 @@ testRunner.Given("User is on login page", ((string)(null)), ((TechTalk.SpecFlow.
                 table2.AddRow(new string[] {
                             "Boston",
                             "USA"});
-#line 16
+#line 18
  testRunner.Then("User selects city and country information", ((string)(null)), table2, "Then ");
 #line hidden
             }

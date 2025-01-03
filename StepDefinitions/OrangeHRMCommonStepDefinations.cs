@@ -31,5 +31,11 @@ namespace VKNewSpecFlowProject1.StepDefinitions
         {
             commonsteps.pagedisplay(pagename);
         }
+
+        [When(@"User waits for the ""(.*)"" element to load")]
+        public void WhenUserWaitsForTheElementToLoad(string keyword)
+        {
+            commonsteps.WaitForElementToLoad(keyword);
+        }
     }
 }

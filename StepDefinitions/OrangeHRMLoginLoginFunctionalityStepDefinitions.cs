@@ -24,7 +24,6 @@ namespace VKNewSpecFlowProject1.StepDefinitions
         public void GivenUserIsOnLoginPage()
         {
             loginPage.launchbrowser();
-            Thread.Sleep(5000);
         }
 
         [When(@"User enters ""([^""]*)"" in the ""([^""]*)"" text box")]
