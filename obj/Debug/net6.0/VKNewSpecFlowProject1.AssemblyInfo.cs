@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VKNewSpecFlowProject1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+034b2b898cd1f037bf35586ad061159f35a7b7ab")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bec467e9e73e6c7f01a196abac273f3e28e5afe2")]
 [assembly: System.Reflection.AssemblyProductAttribute("VKNewSpecFlowProject1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VKNewSpecFlowProject1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

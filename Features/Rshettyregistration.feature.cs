@@ -98,10 +98,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("I navigate to website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 9
-  testRunner.When("I see \"//a[@class=\'navbar-brand\']\" in header", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 10
-  testRunner.When("I see \"//a[@class=\'navbar-brands\']\" in header", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+  testRunner.When("I see \"ProtoCommerce\" in header", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
                 TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                             "Name",
@@ -115,8 +112,8 @@ this.ScenarioInitialize(scenarioInfo);
                             "Vk123",
                             "Male",
                             "2024-12-23"});
-#line 11
-  testRunner.Then("I Then fill the registration form", ((string)(null)), table3, "Then ");
+#line 10
+  testRunner.Then("I fill the registration form", ((string)(null)), table3, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
