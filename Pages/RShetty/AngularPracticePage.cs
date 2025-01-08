@@ -4,6 +4,7 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using VKNewSpecFlowProject1.ComponentHelper;
+using VKNewSpecFlowProject1.Locators.RShetty;
 using VKNewSpecFlowProject1.Utility;
 
 namespace VKNewSpecFlowProject1.Pages
@@ -19,19 +20,9 @@ namespace VKNewSpecFlowProject1.Pages
             buttonClickHelper = new ButtonClickHelper(driver);
         }
 
-        private readonly Dictionary<string, By> _locators = new Dictionary<string, By>
-        {
-            { "protocommerce", By.XPath("//a[@class='navbar-brand']") },
-            { "name", By.XPath("//div[@class='form-group']//input[@name='name']") },
-            { "email", By.XPath("//input[@name='email']") },
-            { "password", By.XPath("//input[@id='exampleInputPassword1']") },
-            { "gender", By.XPath("//select[@id='exampleFormControlSelect1']") },
-            { "dateofbirth", By.XPath("//input[@name='bday']") }
-        };
-
         public By GetLocator(string keyword)
         {
-            if (_locators.TryGetValue(keyword.ToLower(), out By locator))
+            if (AngularPracticePageLocators.Locators.TryGetValue(keyword.ToLower(), out By locator))
             {
                 return locator;
             }

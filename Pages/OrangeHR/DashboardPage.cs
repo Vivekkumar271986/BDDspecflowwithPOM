@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using VKNewSpecFlowProject1.ComponentHelper;
+using VKNewSpecFlowProject1.Locators.OrangeHR;
 
 namespace VKNewSpecFlowProject1.Pages
 {
@@ -17,15 +18,9 @@ namespace VKNewSpecFlowProject1.Pages
             buttonClickHelper = new ButtonClickHelper(driver);
         }
 
-        private readonly Dictionary<string, By> _locators = new Dictionary<string, By>
-        {
-            { "dashboard", By.XPath("//h6[@class='oxd-text oxd-text--h6 oxd-topbar-header-breadcrumb-module'][text()='Dashboard']") },
-            { "leftnavdashboard", By.XPath("//a[@class='oxd-main-menu-item active']") }
-        };
-
         public By GetLocator(string keyword)
         {
-            if (_locators.TryGetValue(keyword.ToLower(), out By locator))
+            if (DashboardPageLocators.Locators.TryGetValue(keyword.ToLower(), out By locator))
             {
                 return locator;
             }

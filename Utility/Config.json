@@ -1,6 +1,6 @@
 {
     "Brand": "OrangeHR",
-    "Browser": "Firefox",
+    "Browser": "Chrome",
     "Headless": false,
     "Timeouts": {
         "ImplicitWait": 10,
@@ -11,5 +11,44 @@
         "Width": 1920,
         "Height": 1080
     },
-    "Maximize": true
+    "Maximize": true,
+    "bindingCulture": {
+        "name": "en-US"
+    },
+    "language": {
+        "feature": "en"
+    },
+    "plugins": [
+        {
+            "name": "SpecFlow.NUnit",
+            "type": "Runtime"
+        }
+    ],
+    "runtime": {
+        "stopAtFirstError": false,
+        "missingOrPendingStepsOutcome": "Inconclusive",
+        "obsoleteBehavior": "Error",
+        "dependencyInjection": {
+            "type": "BoDi"
+        }
+    },
+    "stepAssemblies": [],
+    "trace": {
+        "traceSuccessfulSteps": true,
+        "traceTimings": true,
+        "minTracedDuration": "0:0:0.1",
+        "listener": "TechTalk.SpecFlow.Tracing.DefaultListener, TechTalk.SpecFlow"
+    },
+    "unitTestProvider": {
+        "name": "NUnit",
+        "generatorProvider": "NUnit3"
+    },
+    "nunit": {
+        "runtime": "net6.0",
+        "parallelExecution": {
+            "testThreadCount": 4,
+            "parallelizeAssembly": true,
+            "parallelizeTestCollections": true
+        }
+    }
 }

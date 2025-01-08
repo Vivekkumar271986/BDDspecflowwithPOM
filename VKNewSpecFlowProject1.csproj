@@ -22,12 +22,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Drivers\" />
     <Folder Include="Support\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Features\OrangeHRMDashboardlusingDataTable.feature.cs">
+    <Compile Update="Features\OrangeHR\OrangeHRMDashboardlusingDataTable.feature.cs">
       <Visible>true</Visible>
       <DependentUpon>OrangeHRMDashboardlusingDataTable.feature</DependentUpon>
       <DesignTime>true</DesignTime>
@@ -36,7 +35,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <SpecFlowFeatureFiles Update="Features\OrangeHRMDashboardlusingDataTable.feature">
+    <SpecFlowFeatureFiles Update="Features\OrangeHR\OrangeHRMDashboardlusingDataTable.feature">
       <Visible>$(UsingMicrosoftNETSdk)</Visible>
       <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
     </SpecFlowFeatureFiles>

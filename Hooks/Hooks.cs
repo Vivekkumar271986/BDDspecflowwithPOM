@@ -1,17 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using NUnit.Framework;
-using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Edge;
 using OpenQA.Selenium;
-using WebDriverManager.DriverConfigs.Impl;
 using AventStack.ExtentReports;
 using AventStack.ExtentReports.Gherkin.Model;
 using BoDi;
+using VKNewSpecFlowProject1.Drivers;
 using VKNewSpecFlowProject1.Utility;
 
 namespace SpecFlowBDDAutomationFramework.Hooks
@@ -20,10 +13,12 @@ namespace SpecFlowBDDAutomationFramework.Hooks
     public sealed class Hooks : ExtentReport
     {
         private readonly IObjectContainer _container;
+        private readonly DriverFactory _driverFactory;
 
         public Hooks(IObjectContainer container)
         {
             _container = container;
+            _driverFactory = new DriverFactory();
         }
 
         [BeforeTestRun]
@@ -63,49 +58,8 @@ namespace SpecFlowBDDAutomationFramework.Hooks
         public void FirstBeforeScenario(ScenarioContext scenarioContext)
         {
             Console.WriteLine("Running before scenario...");
-            IWebDriver driver;
-
-            switch (ConfigReader.Browser.ToLower())  //Converts the value of Config.Browser to lowercase. This is useful for making the switch case-insensitive.
-            {
-                case "firefox":
-                    new WebDriverManager.DriverManager().SetUpDriver(new FirefoxConfig());
-                    FirefoxOptions firefoxOptions = new FirefoxOptions();
-                    if (ConfigReader.Headless) firefoxOptions.AddArguments("--headless");
-                    driver = new FirefoxDriver(firefoxOptions);                            //else run as headed
-                    break;
-
-                case "chrome":
-                    new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
-                    ChromeOptions chromeOptions = new ChromeOptions();
-                    if (ConfigReader.Headless) chromeOptions.AddArguments("--headless");
-                    driver = new ChromeDriver(chromeOptions);
-                    break;
-
-                case "edge":
-                    new WebDriverManager.DriverManager().SetUpDriver(new EdgeConfig());
-                    EdgeOptions edgeOptions = new EdgeOptions();
-                    if (ConfigReader.Headless) edgeOptions.AddArguments("--headless");
-                    driver = new EdgeDriver(edgeOptions);
-                    break;
-
-                default:
-                    throw new NotSupportedException($"Browser '{ConfigReader.Browser}' is not supported.");
-            }
-
-            if (ConfigReader.Maximize)
-            {
-                driver.Manage().Window.Maximize();
-            }
-            else
-            {
-                driver.Manage().Window.Size = new System.Drawing.Size(ConfigReader.ViewportWidth, ConfigReader.ViewportHeight);
-            }
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(ConfigReader.ImplicitWait); // Set implicit wait timeout
-            driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(ConfigReader.PageLoad); // Set page load timeout
-            driver.Manage().Timeouts().AsynchronousJavaScript = TimeSpan.FromSeconds(ConfigReader.AsynchronousJavaScript); // Set script timeout
-
+            IWebDriver driver = _driverFactory.InitDriver(ConfigReader.Browser);
             _container.RegisterInstanceAs<IWebDriver>(driver);
-
             _scenario = _feature.CreateNode<Scenario>(scenarioContext.ScenarioInfo.Title);
         }
 
@@ -130,7 +84,7 @@ namespace SpecFlowBDDAutomationFramework.Hooks
 
             var driver = _container.Resolve<IWebDriver>();
 
-            //When scenario passed
+            // When scenario passed
             if (scenarioContext.TestError == null)
             {
                 if (stepType == "Given")
@@ -151,10 +105,9 @@ namespace SpecFlowBDDAutomationFramework.Hooks
                 }
             }
 
-            //When scenario fails
+            // When scenario fails
             if (scenarioContext.TestError != null)
             {
-
                 if (stepType == "Given")
                 {
                     _scenario.CreateNode<Given>(stepName).Fail(scenarioContext.TestError.Message,
@@ -177,6 +130,5 @@ namespace SpecFlowBDDAutomationFramework.Hooks
                 }
             }
         }
-
     }
 }
