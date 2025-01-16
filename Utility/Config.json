@@ -42,13 +42,5 @@
     "unitTestProvider": {
         "name": "NUnit",
         "generatorProvider": "NUnit3"
-    },
-    "nunit": {
-        "runtime": "net6.0",
-        "parallelExecution": {
-            "testThreadCount": 4,
-            "parallelizeAssembly": true,
-            "parallelizeTestCollections": true
-        }
     }
 }

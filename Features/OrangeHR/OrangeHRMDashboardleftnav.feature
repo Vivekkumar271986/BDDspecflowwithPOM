@@ -9,8 +9,8 @@ Given User is on login page
  When User enters "<username>" in the "Username" text box
   And User enters "<password>" in the "Password" text box
   And User clicks on the "Login" button
- Then User is navigated to "Dashboard" page
-  And User sees "LeftNavDashboard" tab highlighted
+ When User is navigated to "Dashboard" page
+ Then User sees "LeftNavDashboard" tab highlighted
  
  Examples:
 | username | password |

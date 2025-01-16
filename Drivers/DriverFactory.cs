@@ -10,7 +10,7 @@ namespace VKNewSpecFlowProject1.Drivers
 {
     public class DriverFactory
     {
-        public static ThreadLocal<IWebDriver> tlDriver = new ThreadLocal<IWebDriver>();
+        private static ThreadLocal<IWebDriver> tlDriver = new ThreadLocal<IWebDriver>();
 
         public IWebDriver InitDriver(string browser)
         {

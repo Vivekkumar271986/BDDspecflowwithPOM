@@ -26,12 +26,14 @@ namespace VKNewSpecFlowProject1.StepDefinitions
             Thread.Sleep(5000);
         }
 
+        [When(@"User is navigated to ""([^""]*)"" page")]
         [Then(@"User is navigated to ""([^""]*)"" page")]
         public void ThenUserIsNavigatedToPage(string pagename)
         {
             commonsteps.pagedisplay(pagename);
         }
 
+        [Then(@"User waits for the ""(.*)"" element to load")]
         [When(@"User waits for the ""(.*)"" element to load")]
         public void WhenUserWaitsForTheElementToLoad(string keyword)
         {

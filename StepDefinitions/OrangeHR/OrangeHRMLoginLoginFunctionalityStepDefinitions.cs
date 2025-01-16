@@ -7,13 +7,13 @@ using VKNewSpecFlowProject1.Pages;
 namespace VKNewSpecFlowProject1.StepDefinitions
 {
     [Binding]
-    public class OrangeHRMLoginLoginFunctionalityStepDefinitions
+    public class OrangeHRMLoginFunctionalityStepDefinitions
     {
         private IWebDriver driver;
         LoginPage loginPage;
         DashboardPage dashboardPage;
 
-        public OrangeHRMLoginLoginFunctionalityStepDefinitions(IWebDriver driver)
+        public OrangeHRMLoginFunctionalityStepDefinitions(IWebDriver driver)
         {
             this.driver = driver;
             loginPage = new LoginPage(driver);

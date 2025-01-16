@@ -22,12 +22,6 @@ namespace VKNewSpecFlowProject1.StepDefinitions
             dashboardPage = new DashboardPage(driver);
         }
 
-        //[When(@"User sees ""([^""]*)"" tab highlighted")]
-        //public void ThenUserSeesTabHighlighted(string tabhighlighted)
-        //{
-        //  dashboardPage.leftnavtabhighlighted(tabhighlighted);
-        //}
-
         [Then(@"User sees ""([^""]*)"" tab highlighted")]
         public void ThenUserSeesTabHighlighted(string tabhighlighted)
         {

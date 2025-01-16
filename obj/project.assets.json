@@ -10994,6 +10994,7 @@
       "Microsoft.NET.Test.Sdk >= 17.12.0",
       "NUnit >= 3.13.2",
       "NUnit3TestAdapter >= 4.6.0",
+      "Newtonsoft.Json >= 13.0.3",
       "Selenium.Support >= 4.27.0",
       "Selenium.WebDriver >= 4.27.0",
       "SpecFlow.NUnit >= 3.9.74",
@@ -11078,6 +11079,10 @@
           "NUnit3TestAdapter": {
             "target": "Package",
             "version": "[4.6.0, )"
+          },
+          "Newtonsoft.Json": {
+            "target": "Package",
+            "version": "[13.0.3, )"
           },
           "Selenium.Support": {
             "target": "Package",

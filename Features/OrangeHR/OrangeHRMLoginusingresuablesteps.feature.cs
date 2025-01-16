@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace VKNewSpecFlowProject1.Features
+namespace VKNewSpecFlowProject1.Features.OrangeHR
 {
     using TechTalk.SpecFlow;
     using System;
@@ -20,24 +20,24 @@ namespace VKNewSpecFlowProject1.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Feature to register for Rahulshetty acadamies angular practice session")]
-    [NUnit.Framework.CategoryAttribute("Sprint1")]
-    public partial class FeatureToRegisterForRahulshettyAcadamiesAngularPracticeSessionFeature
+    [NUnit.Framework.DescriptionAttribute("OrangeHRMLogin Login functionality using resuable flow")]
+    [NUnit.Framework.CategoryAttribute("Sprint2")]
+    public partial class OrangeHRMLoginLoginFunctionalityUsingResuableFlowFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
-                "Sprint1"};
+                "Sprint2"};
         
-#line 1 "Rshettyregistration.feature"
+#line 1 "OrangeHRMLoginusingresuablesteps.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Feature to register for Rahulshetty acadamies angular practice session", "A short summary of the feature", ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/OrangeHR", "OrangeHRMLogin Login functionality using resuable flow", "This feature is to test login feature for Orange HRM website", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -75,16 +75,31 @@ namespace VKNewSpecFlowProject1.Features
             testRunner.CollectScenarioErrors();
         }
         
+        public virtual void FeatureBackground()
+        {
+#line 6
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "username",
+                        "password"});
+            table3.AddRow(new string[] {
+                        "Admin",
+                        "admin123"});
+#line 7
+testRunner.Given("User is logged in to the site with username <username> and password <password>", ((string)(null)), table3, "Given ");
+#line hidden
+        }
+        
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Fill the registration form")]
+        [NUnit.Framework.DescriptionAttribute("Verify Successful Login to orange hrm website using valid credentials")]
         [NUnit.Framework.CategoryAttribute("Sanity")]
-        public void FillTheRegistrationForm()
+        public void VerifySuccessfulLoginToOrangeHrmWebsiteUsingValidCredentials()
         {
             string[] tagsOfScenario = new string[] {
                     "Sanity"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Fill the registration form", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 7
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify Successful Login to orange hrm website using valid credentials", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 13
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -94,26 +109,11 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 8
- testRunner.Given("I navigate to website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 6
+this.FeatureBackground();
 #line hidden
-#line 9
-  testRunner.When("I see \"ProtoCommerce\" in header", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Name",
-                            "Email",
-                            "Password",
-                            "Gender",
-                            "DateofBirth"});
-                table4.AddRow(new string[] {
-                            "Vivek",
-                            "vkum@gmail.com",
-                            "Vk123",
-                            "Male",
-                            "2024-12-23"});
-#line 10
-  testRunner.Then("I fill the registration form", ((string)(null)), table4, "Then ");
+#line 14
+ testRunner.Then("User is navigated to \"Dashboard\" page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

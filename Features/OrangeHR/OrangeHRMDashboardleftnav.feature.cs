@@ -115,10 +115,10 @@ testRunner.Given("User is on login page", ((string)(null)), ((TechTalk.SpecFlow.
   testRunner.And("User clicks on the \"Login\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 12
- testRunner.Then("User is navigated to \"Dashboard\" page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("User is navigated to \"Dashboard\" page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 13
-  testRunner.And("User sees \"LeftNavDashboard\" tab highlighted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then("User sees \"LeftNavDashboard\" tab highlighted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

@@ -18,4 +18,4 @@ using NUnit.Framework;
 [assembly: Guid("f8e1a94f-96e8-4feb-8e28-288a91486107")]
 
 [assembly: Parallelizable(ParallelScope.Fixtures)]                             //will run fixtures
-[assembly:LevelOfParallelism(2)]                                               //2 files at a time
+[assembly:LevelOfParallelism(4)]                                               //4 files at a time

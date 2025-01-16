@@ -13,7 +13,7 @@ namespace VKNewSpecFlowProject1.Utility
         public static string BaseUrl { get; private set; }
         public static string Browser { get; private set; }
         public static bool Headless { get; private set; }
-        public static int ImplicitWait {  get; private set; }
+        public static int ImplicitWait { get; private set; }
         public static int PageLoad { get; private set; }
         public static int AsynchronousJavaScript { get; private set; }
         public static int ViewportWidth { get; private set; }
@@ -41,6 +41,6 @@ namespace VKNewSpecFlowProject1.Utility
             ViewportWidth = int.TryParse(configuration["Viewport:Width"], out var viewportWidth) ? viewportWidth : 1920;
             ViewportHeight = int.TryParse(configuration["Viewport:Height"], out var viewportHeight) ? viewportHeight : 1080;
             Maximize = bool.Parse(configuration["Maximize"]);
-        }
+         }
     }
 }
