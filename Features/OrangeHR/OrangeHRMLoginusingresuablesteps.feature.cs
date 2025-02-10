@@ -115,6 +115,33 @@ this.FeatureBackground();
 #line 14
  testRunner.Then("User is navigated to \"Dashboard\" page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
+#line 15
+ testRunner.When("User waits for the \"LeftNavDashboard\" element to load", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 16
+ testRunner.Then("User sees \"LeftNavDashboard\" tab highlighted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 17
+ testRunner.When("User clicks on the \"LeftNavAdmin\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 18
+ testRunner.Then("User is navigated to \"Admin\" page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 19
+ testRunner.When("User waits for the \"Admin\" element to load", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                            "city",
+                            "country"});
+                table4.AddRow(new string[] {
+                            "Delhi",
+                            "India"});
+                table4.AddRow(new string[] {
+                            "Boston",
+                            "USA"});
+#line 20
+ testRunner.Then("User selects city and country information", ((string)(null)), table4, "Then ");
+#line hidden
             }
             this.ScenarioCleanup();
         }

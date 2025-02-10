@@ -100,20 +100,20 @@ this.ScenarioInitialize(scenarioInfo);
 #line 9
   testRunner.When("I see \"ProtoCommerce\" in header", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
                             "Name",
                             "Email",
                             "Password",
                             "Gender",
                             "DateofBirth"});
-                table4.AddRow(new string[] {
+                table5.AddRow(new string[] {
                             "Vivek",
                             "vkum@gmail.com",
                             "Vk123",
                             "Male",
                             "2024-12-23"});
 #line 10
-  testRunner.Then("I fill the registration form", ((string)(null)), table4, "Then ");
+  testRunner.Then("I fill the registration form", ((string)(null)), table5, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
