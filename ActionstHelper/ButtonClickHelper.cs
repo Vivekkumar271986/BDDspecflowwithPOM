@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 
-namespace VKNewSpecFlowProject1.ComponentHelper
+namespace VKNewSpecFlowProject1.ActionHelper
 {
     public class ButtonClickHelper
     {

@@ -41,6 +41,6 @@ namespace VKNewSpecFlowProject1.Utility
             ViewportWidth = int.TryParse(configuration["Viewport:Width"], out var viewportWidth) ? viewportWidth : 1920;
             ViewportHeight = int.TryParse(configuration["Viewport:Height"], out var viewportHeight) ? viewportHeight : 1080;
             Maximize = bool.Parse(configuration["Maximize"]);
-         }
+        }
     }
 }

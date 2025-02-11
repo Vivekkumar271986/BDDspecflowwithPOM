@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using VKNewSpecFlowProject1.ComponentHelper;
+using VKNewSpecFlowProject1.ActionHelper;
 using VKNewSpecFlowProject1.Locators.OrangeHR;
 using VKNewSpecFlowProject1.Utility;
 
@@ -32,12 +32,6 @@ namespace VKNewSpecFlowProject1.Pages
         public void launchbrowser()
         {
             driver.Navigate().GoToUrl(ConfigReader.BaseUrl);
-        }
-
-        public void entertext(string keyword, string text)
-        {
-            By locator = GetLocator(text);
-            driver.FindElement(locator).SendKeys(keyword);
         }
 
         public void loginerror()

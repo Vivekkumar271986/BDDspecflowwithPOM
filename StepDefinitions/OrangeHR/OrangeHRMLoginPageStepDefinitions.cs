@@ -7,17 +7,19 @@ using VKNewSpecFlowProject1.Pages;
 namespace VKNewSpecFlowProject1.StepDefinitions
 {
     [Binding]
-    public class OrangeHRMLoginFunctionalityStepDefinitions
+    public class OrangeHRMLoginPageStepDefinitions
     {
         private IWebDriver driver;
         LoginPage loginPage;
         DashboardPage dashboardPage;
+        CommonStepsPage commonStepsPage;
 
-        public OrangeHRMLoginFunctionalityStepDefinitions(IWebDriver driver)
+        public OrangeHRMLoginPageStepDefinitions(IWebDriver driver)
         {
             this.driver = driver;
             loginPage = new LoginPage(driver);
             dashboardPage = new DashboardPage(driver);
+            commonStepsPage = new CommonStepsPage(driver);
         }
 
         [Given(@"User is on login page")]
@@ -29,7 +31,7 @@ namespace VKNewSpecFlowProject1.StepDefinitions
         [When(@"User enters ""([^""]*)"" in the ""([^""]*)"" text box")]
         public void WhenUserEntersInTheTextBox(string logindetails, string textboxinputvalue)
         {
-            loginPage.entertext(logindetails, textboxinputvalue);
+            commonStepsPage.entertext(logindetails, textboxinputvalue);
         }
 
         [Then(@"User is on login page and error message is displayed")]

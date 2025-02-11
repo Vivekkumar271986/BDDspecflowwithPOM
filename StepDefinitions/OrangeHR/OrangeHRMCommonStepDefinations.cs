@@ -5,15 +5,15 @@ using NUnit.Framework;
 using TechTalk.SpecFlow;
 using VKNewSpecFlowProject1.Pages;
 
-namespace VKNewSpecFlowProject1.StepDefinitions
+namespace VKNewSpecFlowProject1.CommonStepDefinitions
 {
     [Binding]
-    public class OrangeHRMCommonSteppDefinitions
+    public class OrangeHRMCommonStepDefinitions
     {
         private IWebDriver driver;
         CommonStepsPage commonsteps;
 
-        public OrangeHRMCommonSteppDefinitions(IWebDriver driver)
+        public OrangeHRMCommonStepDefinitions(IWebDriver driver)
         {
             this.driver = driver;
             commonsteps = new CommonStepsPage(driver);
@@ -38,6 +38,18 @@ namespace VKNewSpecFlowProject1.StepDefinitions
         public void WhenUserWaitsForTheElementToLoad(string keyword)
         {
             commonsteps.WaitForElementToLoad(keyword);
+        }
+
+        [Then(@"User selects ""([^""]*)"" from ""([^""]*)"" dropdown")]
+        public void ThenUserSelectsFromDropdown(string option, string dropdown)
+        {
+            commonsteps.SelectsFromDropdown(option, dropdown);
+        }
+
+        [Then(@"User selects ""([^""]*)"" from ""([^""]*)"" divdropdown")]
+        public void ThenUserSelectsFromDivdropdown(string option, string dropdown)
+        {
+            commonsteps.SelectFromDivDropdown(option, dropdown);
         }
     }
 }

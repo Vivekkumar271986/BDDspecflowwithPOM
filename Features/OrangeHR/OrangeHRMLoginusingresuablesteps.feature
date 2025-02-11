@@ -17,8 +17,6 @@ Scenario: Verify Successful Login to orange hrm website using valid credentials
  When User clicks on the "LeftNavAdmin" button
  Then User is navigated to "Admin" page
  When User waits for the "Admin" element to load
- Then User selects city and country information
-
- | city   | country |
- | Delhi  | India   |
- | Boston | USA     |
+ Then User enters "Orangeuser01" text in "SystemUsersUsername" textfield
+# Then User selects "ESS" from "userrole" dropdown
+ Then User selects "ESS" from "userrole" divdropdown

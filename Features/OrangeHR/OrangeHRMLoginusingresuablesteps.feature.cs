@@ -130,17 +130,11 @@ this.FeatureBackground();
 #line 19
  testRunner.When("User waits for the \"Admin\" element to load", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
-                            "city",
-                            "country"});
-                table4.AddRow(new string[] {
-                            "Delhi",
-                            "India"});
-                table4.AddRow(new string[] {
-                            "Boston",
-                            "USA"});
 #line 20
- testRunner.Then("User selects city and country information", ((string)(null)), table4, "Then ");
+ testRunner.Then("User enters \"Orangeuser01\" text in \"SystemUsersUsername\" textfield", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 22
+ testRunner.Then("User selects \"ESS\" from \"userrole\" divdropdown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

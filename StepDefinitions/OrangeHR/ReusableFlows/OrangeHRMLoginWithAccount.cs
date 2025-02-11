@@ -33,8 +33,9 @@ namespace VKNewSpecFlowProject1.StepDefinitions.OrangeHR.ReusableFlows
             {
                 string Username = row["username"];
                 string Password = row["password"];
-                loginPage.entertext(Username, "username");
-                loginPage.entertext(Password, "password");
+                commonsteps.entertext(Username, "username");
+                commonsteps.entertext(Password, "password");
+                Console.WriteLine("Username entered: " + Username + " Password entered: " + Password);
             }
             commonsteps.clickbutton("login");
         }

@@ -15,8 +15,8 @@ namespace VKNewSpecFlowProject1.Utility
         public static ExtentReports _extentReports;
         public static ExtentTest _feature;
         public static ExtentTest _scenario;
-        public static String dir = AppDomain.CurrentDomain.BaseDirectory;
-        public static String testResultPath = dir.Replace("bin\\Debug\\net6.0", "TestResults");
+        public static string dir = AppDomain.CurrentDomain.BaseDirectory;
+        public static string testResultPath = dir.Replace("bin\\Debug\\net6.0", "TestResults");
 
         public static void ExtentReportInit()
         {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using VKNewSpecFlowProject1.ComponentHelper;
+using VKNewSpecFlowProject1.ActionHelper;
 using VKNewSpecFlowProject1.Locators.OrangeHR;
 using VKNewSpecFlowProject1.Utility;
 
@@ -27,6 +27,13 @@ namespace VKNewSpecFlowProject1.Pages
                 return locator;
             }
             throw new KeyNotFoundException($"Locator for keyword '{keyword}' not found.");
+        }
+
+        public void entertext(string text, string field)
+        {
+            By locator = GetLocator(field);
+            driver.FindElement(locator).SendKeys(text);
+            Console.WriteLine("Entered " + text + " in " + field + " at locator "+ locator);
         }
 
         public void clickbutton(string keyword)
@@ -55,6 +62,25 @@ namespace VKNewSpecFlowProject1.Pages
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeoutInSeconds));
             IWebElement element = driver.FindElement(locator);
             wait.Until(d => element.Displayed);
+        }
+
+        public void SelectsFromDropdown(string value, string keyword)
+        {
+            By locator = GetLocator(keyword);
+            SelectElement select = new SelectElement(driver.FindElement(locator));
+            select.SelectByText(value);
+        }
+
+        public void SelectFromDivDropdown(string value, string keyword)
+        {
+            By locator = GetLocator(keyword);
+            IWebElement dropdown = driver.FindElement(locator);
+            dropdown.Click(); // Open the dropdown
+
+            // Assuming the dropdown options are within the same parent div
+            By optionLocator = By.XPath(locator$"//div[contains(@class, 'dropdown')]//div[text()='{value}']");
+            IWebElement option = driver.FindElement(optionLocator);
+            option.Click(); // Select the option
         }
     }
 }

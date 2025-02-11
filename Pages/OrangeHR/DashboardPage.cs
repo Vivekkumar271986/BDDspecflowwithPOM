@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using VKNewSpecFlowProject1.ComponentHelper;
+using VKNewSpecFlowProject1.ActionHelper    ;
 using VKNewSpecFlowProject1.Locators.OrangeHR;
 
 namespace VKNewSpecFlowProject1.Pages
